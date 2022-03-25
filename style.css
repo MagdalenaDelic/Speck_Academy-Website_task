@@ -143,3 +143,8 @@ h2 {
   margin-bottom: 48px;
   width: 440px;
 }
+
+.header.header_secondary {
+  background-color: var(--color-text-primary);
+  position: initial;
+}
