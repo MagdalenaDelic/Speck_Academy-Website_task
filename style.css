@@ -35,7 +35,7 @@ h2 {
 }
 /*buttons*/
 
-.buttons {
+.button {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -48,30 +48,61 @@ h2 {
   border-radius: 30px;
   text-transform: uppercase;
 }
-.buttons_nav {
+.button_nav {
   width: 150px;
 }
-.buttons_secondary {
+.button_secondary {
   background: var(--color-primary);
   color: var(--color-bg-primary);
 }
+.button_outline{
+  border:1px solid var(--color-primary) ;
+
+}
+.button_heading{
+  width: 200px;
+}
+
 /*header*/
+
 .header {
+  
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1;
-  padding: 32px 0; /*top/down, left/right*/
+  padding: 24px ; /*-top/down, left/right*/
+}  
+.header__secondary{
+  background-color: var(--color-text-primary);
+  position: initial
+}
+
+.header__hamburger {
+  width: 30px;
+  height: auto;
+}
+
+.header__hamburger path {
+  fill: #ffffff;
 }
 
 .header__inner {
-  width: 1300px;
-  margin: 0 auto;
+  /* width: 1300px; u mobilnoj sirina nije bitna */
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
+.header__inner {
+ 
+  /* width: 1300px; - radi toga imamo bjelinu */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} 
 
 .header__logo-img {
   width: 140px;
@@ -81,6 +112,9 @@ h2 {
   color: var(--color-secondary);
   letter-spacing: 1px;
   margin-right: 48px;
+}
+.header__nav {
+  display: none;
 }
 
 .header__nav-button {
@@ -124,9 +158,9 @@ h2 {
 }
 .landing__content {
   position: absolute;
+  width: 1300px;
   left: calc((100% - 1300px) / 2);
   top: 0;
-  width: 1300px;
   height: 100%;
   display: flex;
   align-items: center;
@@ -134,7 +168,7 @@ h2 {
 .landing__title {
   color: var(--color-bg-primary);
   font-size: 56px;
-  margin: 24px;
+  margin-bottom: 24px;
   width: 550px;
 }
 .landing__subtitle {
@@ -144,7 +178,355 @@ h2 {
   width: 440px;
 }
 
-.header.header_secondary {
-  background-color: var(--color-text-primary);
-  position: initial;
+@media (min-width: 375px ) {
+  
+.landing {
+  height: 100vh;
+  position: relative;
 }
+
+.landing__content {
+  position: absolute;
+  width: 1300px;
+  left: 30px;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center
+  just;
+}
+.landing__title {
+  color: var(--color-bg-primary);
+  font-size: 36px;
+  margin-bottom: 24px;
+  width: 300px;
+}
+.landing__subtitle {
+  color: var(--color-bg-primary);
+  font-size: 16px;
+  margin-bottom: 48px;
+  width: 250px;
+}
+  
+}
+@media (min-width: 768px ) {
+
+  .landing__title {
+    font-size: 40px;
+    width: 450px;
+  }
+  .landing__subtitle {
+    font-size: 20px;
+    width: 400px;
+  } 
+  .landing__content {
+   top: 20px;
+  }
+}
+@media (min-width: 980px ) {
+
+  .landing__title {
+    font-size: 45px;
+    width: 500px;
+  }
+  .landing__subtitle {
+    font-size: 24px;
+    width: 500px;
+  } 
+  .landing__content {
+    top: 20px;
+}
+}
+@media (min-width: 1024px ) {
+
+  .landing__title {
+    font-size: 56px;
+    width: 550px;
+  }
+  .landing__subtitle {
+    font-size: 24px;
+    width: 500px;
+  } 
+}
+
+
+/* section*/
+.section{
+  padding: 60px 24px;
+}
+.section_testimonials{
+  background-color: var(--color-bg-secondary);
+  padding: 60px 24px;
+}
+
+
+.section__action-text{
+  color: var(--color-primary);
+  font-weight: 500;
+  margin-bottom: 24px;
+  display:block;
+
+}
+.section__heading{
+ margin-bottom: 64px;
+ 
+}
+.section__title{
+  color: var(--color-text-primary);
+  margin-bottom: 32px;
+  font-weight: 500;
+  font-size: 26px; 
+}
+
+.courses-featured{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  row-gap: 48px;
+ 
+}
+.course__img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease-out;
+}
+
+.course__figure{
+  
+  width: 100%;
+  height: 245px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  transition: all 0.3s;
+  
+}
+.course__title{
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  text-align: center;
+  margin-bottom: 8px;
+  transition: color 0.3s ease-out;
+
+}
+.course__subtitle{
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  text-align: center;
+  
+}
+.course:hover .course__figure {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.course:hover .course__img {
+  transform: scale(1.05);
+}
+
+.course:hover .course__title {
+ color: var(--color-primary);
+}
+
+@media(min-width: 481px){
+  .courses-featured{
+    
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 32px;
+ 
+  }
+  .course__figure{ 
+    height: 200px;
+   
+  }
+
+}
+
+@media (min-width: 768px ){
+  .course__figure{
+    
+    height: 275px; 
+  }
+
+}
+@media (min-width:1024px){
+  
+  .courses-featured{
+    
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 48px;
+
+  }
+  .course__figure{ 
+    height: 230px;
+   
+  }
+
+}
+@media (min-width:1300px) {
+  .courses-featured{
+    grid-template-columns: repeat(4, 1fr);
+ 
+  }
+  .course__figure{ 
+    height: 255px;
+  }
+  
+
+}
+
+/*vcs html*/
+
+.single-course__figure{
+  width: 100%;
+  overflow: hidden;
+  height: auto;
+  border-radius: 16px;
+  margin-bottom: 32px;
+  transition: all 0.3s;
+}
+.single-course__img{
+  display: cover;
+  width: 100%;
+  height: 100%;
+}
+.single-course__text{
+  font-size: 16px;
+  line-height: 180%;
+  color: var(--color-text-primary);
+}
+@media (min-width: 768px){
+  .single-course {
+    display: flex;
+    justify-content: space-between;
+  }
+  .single-course__figure{
+    width: 350px;
+    height: 350px;
+    margin-bottom: 0;
+    transition: all 0.3s;
+    flex-shrink: 0;
+  
+  }
+  
+  .single-course__text{
+    padding-left: 48px;
+  }
+}
+@media (min-width: 1300px){
+  
+  .single-course__figure{
+    width: 450px;
+    height: 450px;
+  }
+  .single-course__text{
+    padding-left: 64px;
+   
+  }
+   
+}
+
+@media (min-width: 768px ){
+  .section__title{
+    margin-bottom: 0; /*ne želimo jer se nakon 760 prikazuje na desnoj strani i poništavamo naslijeđeno*/ 
+    font-size: 32px;
+    
+  }
+  .section__heading{
+    margin-bottom: 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+  }
+
+}
+
+@media (min-width:1024px) {
+  .section{
+    padding: 120px 0;
+  }
+  .section__inner{
+    width: 960px;
+    margin: 0 auto;
+  }
+  
+}
+@media (min-width:1300px) {
+  
+  .section__inner{
+    width: 1300px;
+  }
+
+}
+
+/*testimonial*/
+.testimonial{
+  display: flex;
+  justify-content: space-between ;
+  align-items: center;
+
+}
+
+
+.testimonial__figure{
+  
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  overflow: hidden;
+  margin-left: 20px; 
+}
+.testimonial__image{
+  width: 100%;
+  height: 100%; 
+  object-fit: cover;
+  
+}
+
+.testimonial__text{
+  text-align: center;
+  margin-left: 50px; /*nesme se*/
+  font-size: 30px;
+  line-height: 180% ;
+  color: var(--color-text-secondary);
+
+}
+
+.testimonial__quotation{
+  font-size: 48px;
+
+  
+}
+
+@media (max-width:480px){
+  .testimonial{
+    flex-direction: column;
+  }
+
+}
+
+@media (min-width: 1240px) { /*od 1240 na dalje se gleda*/
+  .header__hamburger {
+    display: none;
+  }
+  .header__nav {
+    display: block;
+  }
+
+  .header__inner {
+    width: 900px; 
+    margin: 0 auto;
+    padding: 32px 0px
+   ;
+  } 
+  */
+}
+@media (min-width: 1300px){
+  .header__inner{
+    width: 1260px;
+  }
+}
+
